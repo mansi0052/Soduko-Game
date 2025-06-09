@@ -127,6 +127,29 @@ h1{
   color: var(--text-color);
 }
 
+[data-theme="dark"] #leaderboard {
+  background-color: #1e1e1e; /* dark background */
+  border-color: #444;
+  box-shadow: 0 2px 6px rgba(255,255,255,0.1);
+  color: #ddd; /* default text color */
+}
+
+[data-theme="dark"] #leaderboard .leaderboard-row {
+  border-bottom: 1px solid #444;
+}
+
+[data-theme="dark"] #leaderboard .rank {
+  color: #aaa;
+}
+
+[data-theme="dark"] #leaderboard .name {
+  color: #eee;
+}
+
+[data-theme="dark"] #leaderboard .time {
+  color: #6ec1ff;
+}
+
 #leaderboard {
   width: 300px; 
   margin: 0 auto;
@@ -299,4 +322,10 @@ input.cell:focus {
 
 .btn.cancel {
   background-color: #ccc;
+}
+
+[data-theme="dark"] .modal-content {
+  background-color: #2c2c2c;  /* Dark background */
+  color: #eee;                /* Light text */
+  border: 1px solid #555;     /* Slight border for contrast */
 }
