@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sudoku Master</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="game-container">
+    <div class="title-container">
+      <img src="https://play-lh.googleusercontent.com/fpjShpZTZietEzUxiSzv4Vlw6KFoxwNaMKBsnt3ZAQjaMA1Bsorb2szhuiThZloxQg" alt="Sudoku Icon" />
+      <h1>Sudoku Master</h1>
+    </div>
+    <h3>Test your Logic! Solve the Puzzle</h3>
+
+    <div class="top-bar">
+      <div id="timer">Time: 00:00</div>
+         <button id="pause-btn" onclick="togglePause()">Pause</button>
+    </div>
+
+    
+    <div class="difficulty-selector">
+      <label for="difficulty">Difficulty:</label>
+      <select id="difficulty">
+        <option value="30">Easy</option>
+        <option value="40" selected>Medium</option>
+        <option value="50">Hard</option>
+      </select>
+    </div>
+
+    <div id="board"></div>
+
+    <div class="controls">
+      <button id="start-btn" onclick="startGame()">Start Game</button>
+      <div id="game-buttons" style="display: none;">
+        <button class="btn btn-outline-primary" onclick="enableManualInput()">Manual Input</button>
+        <button class="btn btn-outline-success" id="solve-btn" onclick="solveManualPuzzle()" style="display:none;">Solve Puzzle</button>
+        <button id="reset-btn">Reset</button>
+        <button class="btn btn-success" onclick="checkSolution()">Check Solution</button>
+        <button onclick="generateSudoku()">New Game</button>
+        <button class="btn btn-secondary" onclick="giveHint()">Hint</button>
+        <button class="btn btn-info" onclick="solveWithAnimation()">Solve with Animation</button>
+      </div>
+
+      <button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+      <div class="customization">
+  <label for="font-style">Font Style:</label>
+  <select id="font-style" onchange="changeFontStyle()">
+    <option value="Segoe UI">Segoe UI</option>
+    <option value="Courier New">Courier New</option>
+    <option value="Arial">Arial</option>
+    <option value="Verdana">Verdana</option>
+    <option value="monospace">Monospace</option>
+  </select>
+
+  <label for="font-size">Font Size:</label>
+  <input type="range" id="font-size" min="12" max="32" value="20" oninput="changeFontSize()" />
+</div>
+
+    </div>
+
+    <div style="text-align: center;">
+  <div id="message"></div>
+</div>
+
+
+    <div id="puzzle-counter">Puzzles Completed: 0</div>
+
+    <h3>Leaderboard (Best Times)</h3>
+    <div id="leaderboard">
+  <div class="leaderboard-row">
+    <span class="rank">1.</span>
+    <span class="name">Alice</span>
+    <span class="time">04:12</span>
+  </div>
+  <div class="leaderboard-row">
+    <span class="rank">2.</span>
+    <span class="name">Bob</span>
+    <span class="time">05:09</span>
+  </div>
+  <div class="leaderboard-row">
+    <span class="rank">3.</span>
+    <span class="name">Charlie</span>
+    <span class="time">06:23</span>
+  </div>
+</div>
+
+  </div>
+
+  <div id="message-box" class="message-box"></div>
+
+  <!-- Reset Confirmation Modal -->
+<div id="reset-modal" class="modal">
+  <div class="modal-content">
+    <p>Are you sure you want to reset the board?</p>
+    <button id="confirm-reset" class="btn">Yes, Reset</button>
+    <button id="cancel-reset" class="btn cancel">Cancel</button>
+  </div>
+</div>
+
+</body>
+ <script src="script.js"></script>
+</html>
+
