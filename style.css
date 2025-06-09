@@ -1,6 +1,5 @@
 * {
   box-sizing: border-box;
-
 }
 
 body {
@@ -129,7 +128,7 @@ h1{
 }
 
 #leaderboard {
-  width: 300px;  /* adjust width as needed */
+  width: 300px; 
   margin: 0 auto;
   border: 1px solid #ccc;
   border-radius: 6px;
@@ -145,7 +144,7 @@ h1{
   padding: 6px 12px;
   border-bottom: 1px solid #ddd;
   font-size: 14px;
-  gap: 8px; /* spacing between items */
+  gap: 8px;
 }
 
 .leaderboard-row:last-child {
@@ -252,7 +251,6 @@ input.cell:focus {
   transition: all 0.3s ease;
 }
 
-/* Beautiful "Puzzle Solved" animation style */
 #message.solved {
   font-size: 30px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;

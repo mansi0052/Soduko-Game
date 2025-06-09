@@ -99,7 +99,7 @@ function createBoard() {
         });
       }
 
-      // Add thick border between 3x3 squares
+      //Thick border between 3x3 squares
       if (col % 3 === 0) input.style.borderLeft = '2px solid black';
       if (row % 3 === 0) input.style.borderTop = '2px solid black';
       if (col === 8) input.style.borderRight = '2px solid black';
@@ -129,7 +129,7 @@ function resetBoard() {
   puzzleAlreadySolved = false;
 }
 
-// Handle Confirm Reset
+//Confirm Reset
 confirmResetBtn.addEventListener('click', () => {
   resetModal.style.display = 'none';
 
@@ -148,11 +148,9 @@ confirmResetBtn.addEventListener('click', () => {
   // Reset timer, hints, etc.
   resetTimer();
   resetHints();
-
-  // Optional: regenerate puzzle or clear additional states
 });
 
-// Handle Cancel Reset
+//Cancel Reset
 cancelResetBtn.addEventListener('click', () => {
   resetModal.style.display = 'none';
 });
@@ -233,7 +231,7 @@ function checkSolution() {
     }
   }
 
-  // Final check against the actual solution
+  // Final check
   if (isCorrect && !hasEmptyCells) {
     for (let row = 0; row < 9; row++) {
       for (let col = 0; col < 9; col++) {
@@ -254,10 +252,10 @@ function checkSolution() {
     msg.classList.add('solved');
     msg.innerText = "🎉 Puzzle Solved!";
 
-    puzzleSolved();  // ✅ Only once
+    puzzleSolved(); 
     updateLeaderboard(seconds);
 
-    puzzleAlreadySolved = true;  // ✅ Prevent further increments
+    puzzleAlreadySolved = true;  
   }
 } else if (hasEmptyCells) {
   msg.innerText = "⚠️ Please fill all cells before checking.";
@@ -287,7 +285,6 @@ function toggleTheme() {
   html.setAttribute("data-theme", newTheme);
 }
 
-// Assuming this already exists somewhere:
 let puzzlesCompleted = 0;
 
 if (localStorage.getItem('puzzlesCompleted')) {
@@ -306,7 +303,6 @@ function puzzleSolved() {
   updatePuzzleCounter();
 }
 
-// Reset modal logic (ensure this is already present):
 document.getElementById('reset-btn').addEventListener('click', () => {
   document.getElementById('reset-modal').style.display = 'block';
 });
@@ -315,20 +311,20 @@ document.getElementById('cancel-reset').addEventListener('click', () => {
   document.getElementById('reset-modal').style.display = 'none';
 });
 
-// ✅ Reset confirmation handler
+// Reset confirmation handler
 document.getElementById('confirm-reset').addEventListener('click', () => {
   resetBoard(); // Your function to reset the puzzle board
 
-  // ✅ Reset puzzles completed count
+  // Reset puzzles completed count
   puzzlesCompleted = 0;
   localStorage.setItem('puzzlesCompleted', puzzlesCompleted);
   updatePuzzleCounter();
 
-  // ✅ Hide modal
+  // Hide modal
   document.getElementById('reset-modal').style.display = 'none';
 });
 
-// Call this when the puzzle is successfully solved
+//when the puzzle is successfully solved
 function puzzleSolved() {
   puzzlesCompleted++;
   localStorage.setItem('puzzlesCompleted', puzzlesCompleted);
@@ -536,9 +532,6 @@ function solveManualPuzzle() {
     alert("❌ This puzzle has no solution!");
   }
 }
-// Assuming these variables are defined earlier:
-// const confirmResetBtn = document.getElementById('confirm-reset');
-// const resetModal = document.getElementById('reset-modal');
 
 document.getElementById('confirm-reset').addEventListener('click', () => {
   // Hide the reset modal
